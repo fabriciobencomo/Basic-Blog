@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">Admin Posts <a href="{{route("posts.create")}}" class="btn btn-sm btn-primary mx-5">Create</a></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -30,7 +30,7 @@
                                         <a href="{{route('posts.update', $post)}}" class="btn btn-primary btn-sm">Edit</a>
                                     </td>
                                     <td>
-                                        <form action="{{route('posts.destroy', $post)}}">
+                                        <form action="{{route('posts.destroy', $post)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" class="btn btn-danger btn-sm" value="Delete" onclick="return confirm('Esta Seguro de eliminar este post? esta accion es irreversible')">
